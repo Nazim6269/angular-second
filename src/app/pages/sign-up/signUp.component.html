@@ -1,55 +1,29 @@
 <div class="flex flex-col py-6 justify-center items-center">
   <h2 class="font-bold text-3xl mb-3">Sign Up Form</h2>
-  <form
-    [formGroup]="signUpForm"
-    class="flex flex-col max-w-xl"
-    (ngSubmit)="onSubmit()"
-  >
+  <form [formGroup]="signUpForm" class="flex flex-col" (ngSubmit)="onSubmit()">
     <!-- First name field -->
-    <mat-form-field>
-      <mat-label>First Name</mat-label>
-      <input matInput type="text" formControlName="firstName" />
-      <mat-error *ngIf="hasError('firstName', 'required')"
-        >First name is required</mat-error
-      >
-      <mat-error *ngIf="hasError('firstName', 'minlength')"
-        >Password must be minimum 4</mat-error
-      >
-      <mat-error *ngIf="hasError('firstName', 'maxlength')"
-        >Password must be maximum 8</mat-error
-      >
-    </mat-form-field>
+    <custom-form-field
+      label="First Name"
+      inputType="text"
+      [formGroup]="signUpForm"
+      controlName="firstName"
+    ></custom-form-field>
 
     <!-- Second name Field -->
-    <mat-form-field>
-      <mat-label>Last Name</mat-label>
-      <input matInput type="text" formControlName="lastName" />
-
-      <mat-error *ngIf="hasError('lastName', 'required')"
-        >Last Name is required</mat-error
-      >
-      <mat-error *ngIf="hasError('lastName', 'minlength')"
-        >Password must be minimum 4</mat-error
-      >
-      <mat-error *ngIf="hasError('lastName', 'maxlength')"
-        >Password must be maximum 8</mat-error
-      >
-    </mat-form-field>
+    <custom-form-field
+      label="Last Name"
+      inputType="text"
+      [formGroup]="signUpForm"
+      controlName="lastName"
+    ></custom-form-field>
 
     <!-- Password Field -->
-    <mat-form-field>
-      <mat-label>Enter your password</mat-label>
-      <input matInput type="password" formControlName="password" />
-      <mat-error *ngIf="hasError('password', 'required')"
-        >Password is required</mat-error
-      >
-      <mat-error *ngIf="hasError('password', 'minlength')"
-        >Password length at least 4</mat-error
-      >
-      <mat-error *ngIf="hasError('password', 'maxlength')"
-        >Passwrod length maximum 8</mat-error
-      >
-    </mat-form-field>
+    <custom-form-field
+      label="Password"
+      inputType="password"
+      [formGroup]="signUpForm"
+      controlName="password"
+    ></custom-form-field>
 
     <!-- submit button -->
     <button mat-flat-button>Submit</button>

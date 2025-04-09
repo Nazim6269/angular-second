@@ -1,4 +1,3 @@
-import { NgIf } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import {
   FormBuilder,
@@ -10,6 +9,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
+import { CustomFormField } from "../../components/form/custom-form-field.component";
 
 @Component({
   selector: "sign-up",
@@ -20,7 +20,8 @@ import { MatInputModule } from "@angular/material/input";
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
-    NgIf,
+
+    CustomFormField,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -44,11 +45,5 @@ export class SignUpComponent {
 
   onSubmit() {
     console.log(this.signUpForm.value);
-  }
-
-  hasError(controlName: string, errorName: string): boolean | undefined {
-    const control = this.signUpForm.get(controlName);
-
-    return control?.touched && control.hasError(errorName);
   }
 }

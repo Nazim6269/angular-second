@@ -1,13 +1,15 @@
-<mat-form-field>
-      <mat-label>First Name</mat-label>
-      <input matInput type="text" formControlName="firstName" />
-      <mat-error *ngIf="hasError('firstName', 'required')"
-        >First name is required</mat-error
-      >
-      <mat-error *ngIf="hasError('firstName', 'minlength')"
-        >Password must be minimum 4</mat-error
-      >
-      <mat-error *ngIf="hasError('firstName', 'maxlength')"
-        >Password must be maximum 8</mat-error
-      >
-    </mat-form-field>
+<div [formGroup]="formGroup">
+  <mat-form-field>
+    <mat-label>{{ label }}</mat-label>
+    <input matInput [type]="inputType" [formControlName]="controlName" />
+    <mat-error *ngIf="hasError(controlName, 'required')"
+      >{{ label }} is required</mat-error
+    >
+    <mat-error *ngIf="hasError(controlName, 'minlength')"
+      >{{ label }} must be minimum 4</mat-error
+    >
+    <mat-error *ngIf="hasError(controlName, 'maxlength')"
+      >{{ label }} must be maximum 8</mat-error
+    >
+  </mat-form-field>
+</div>
